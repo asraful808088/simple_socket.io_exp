@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Your uuid : <samp id="uuid"></samp></h3>
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+      const uuidHtml = document.getElementById("uuid");
+      const uuiItems =
+        "sadshjdgasjhdgasdgajhsdgajhsdg2117251725127jhasgdjsa712517252asdjhasgf1257125";
+      function getRandomUUID() {
+        return Math.floor(Math.random() * uuiItems.length);
+      }
+      //create uuid
+      let uuiId = "";
+      for (let index = 0; index < uuiItems.length + 1; index++) {
+        uuiId += uuiItems[getRandomUUID()];
+      }
+      uuidHtml.innerText = uuiId;
+      const socket = io("/");
+      socket.emit("userid", {
+        userid: uuiId,
+      });
+    </script>
+  </body>
+</html>
