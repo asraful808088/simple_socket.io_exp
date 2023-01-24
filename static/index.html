@@ -21,7 +21,7 @@
       for (let index = 0; index < uuiItems.length + 1; index++) {
         uuiId += uuiItems[getRandomUUID()];
       }
-      uuidHtml.innerText = uuiId;
+      uuidHtml.innerHTML = uuiId;
       const socket = io("/");
       socket.emit("userid", {
         userid: uuiId,
